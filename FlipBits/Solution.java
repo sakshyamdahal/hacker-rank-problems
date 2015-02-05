@@ -1,7 +1,13 @@
+package arrays.strings.problems;
+
 import java.util.Scanner;
 
+/*
+ 	Thank you scipio for helping me with this problem.
+*/
 
-public class Solution 
+
+public class Solution
 {
 
     public static void main(String[] args) 
@@ -13,16 +19,21 @@ public class Solution
 		for (int i = 0; i < loop; i++)
 		{
             input.nextLine();
-			int num = input.nextInt();
+			String num = input.next();
 			System.out.println(flipBits(num));
 		}
 	}
     
-    
-    public static long flipBits(int num)
-    {
-        return Long.valueOf(Integer.toBinaryString(~num), 2);    
+    public static String flipBits(String numString) {
+    	
+    	long longTemp = Long.parseLong(numString);
+    	longTemp -= (long) (Integer.MAX_VALUE) + 1;
+    	int num = ~Integer.parseInt(Long.toString(longTemp));
+    	longTemp = new Long(num) + Integer.MAX_VALUE + 1;
+    	return Long.toString(longTemp);
     }
+    
+
 
     
 }
